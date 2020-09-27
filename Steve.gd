@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
-var coins = 0
+var velocity = Vector2(0,0)
 
-var playername = "Bob"
 func _physics_process(delta):
-	print(playername)
+  if Input.is_action_pressed("right"):
+    velocity.x = 100
+  if Input.is_action_pressed("left"):
+    velocity.x = -100
+  
+  move_and_slide(velocity)
