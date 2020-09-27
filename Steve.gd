@@ -1,13 +1,16 @@
 extends KinematicBody2D
 
 var velocity = Vector2(0,0)
+const SPEED = 180
 
-func _physics_process(delta):
+func _physics_process(_delta):
   if Input.is_action_pressed("right"):
-    velocity.x = 100
+    velocity.x = SPEED
   if Input.is_action_pressed("left"):
-    velocity.x = -100
+    velocity.x = -SPEED
+
+  velocity.y = velocity.y + 30
   
-  move_and_slide(velocity)
+  velocity = move_and_slide(velocity)
 
   velocity.x = lerp(velocity.x, 0, 0.2)
