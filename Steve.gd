@@ -9,3 +9,5 @@ func _physics_process(delta):
     velocity.x = -100
   
   move_and_slide(velocity)
+
+  velocity.x = lerp(velocity.x, 0, 0.1)
