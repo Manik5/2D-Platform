@@ -10,11 +10,16 @@ func _physics_process(_delta):
   if Input.is_action_pressed("right"):
     velocity.x = SPEED
     $Sprite.play("walk")
+    $Sprite.flip_h = false
   elif Input.is_action_pressed("left"):
     velocity.x = -SPEED
     $Sprite.play("walk")
+    $Sprite.flip_h = true
   else:
     $Sprite.play("idle")
+
+  if not is_on_floor():
+    $Sprite.play("air")
 
 
   velocity.y = velocity.y + GRAVITY
