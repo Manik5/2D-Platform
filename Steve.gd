@@ -6,10 +6,16 @@ const GRAVITY = 30
 const JUMPFORCE = -900
 
 func _physics_process(_delta):
+
   if Input.is_action_pressed("right"):
     velocity.x = SPEED
-  if Input.is_action_pressed("left"):
+    $Sprite.play("walk")
+  elif Input.is_action_pressed("left"):
     velocity.x = -SPEED
+    $Sprite.play("walk")
+  else:
+    $Sprite.play("idle")
+
 
   velocity.y = velocity.y + GRAVITY
 

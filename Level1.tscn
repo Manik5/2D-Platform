@@ -3,7 +3,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Steve.tscn" type="PackedScene" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 237.884, 35.163 )
 
 [node name="Level1" type="Node2D"]
@@ -20,7 +20,7 @@ scale = Vector2( 7.34375, 1 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor1"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="floor2" type="StaticBody2D" parent="."]
 position = Vector2( 895.169, 372.573 )
@@ -34,7 +34,7 @@ scale = Vector2( 7.34375, 1 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Steve" parent="." instance=ExtResource( 2 )]
 position = Vector2( 467.223, 34.9623 )
