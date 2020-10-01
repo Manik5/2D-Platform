@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://world_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Steve.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@ extents = Vector2( 192, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 224, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2880, 128 )
 
 [node name="Level1" type="Node2D"]
 
@@ -36,10 +39,10 @@ position = Vector2( 928, -32 )
 shape = SubResource( 2 )
 one_way_collision = true
 
-[node name="Steve" parent="." instance=ExtResource( 2 )]
+[node name="steve" parent="." instance=ExtResource( 2 )]
 position = Vector2( 928, -64 )
 
-[node name="Camera2D" type="Camera2D" parent="Steve"]
+[node name="Camera2D" type="Camera2D" parent="steve"]
 current = true
 limit_left = 80
 limit_top = -500
@@ -93,3 +96,13 @@ motion_mirroring = Vector2( 1120, 840 )
 scale = Vector2( 1.75, 1.75 )
 texture = ExtResource( 5 )
 centered = false
+
+[node name="fallzone" type="Area2D" parent="."]
+position = Vector2( 4000, 704 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fallzone"]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="fallzone" to="steve" method="_on_fallzone_body_entered"]
