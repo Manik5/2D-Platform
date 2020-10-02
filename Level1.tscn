@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://world_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Steve.tscn" type="PackedScene" id=2]
 [ext_resource path="res://pass_through_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/background/set2_background.png" type="Texture" id=4]
 [ext_resource path="res://assets/background/set2_tiles.png" type="Texture" id=5]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 192, 32 )
@@ -105,4 +106,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fallzone"]
 shape = SubResource( 3 )
+
+[node name="coin" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1280, 256 )
 [connection signal="body_entered" from="fallzone" to="steve" method="_on_fallzone_body_entered"]
