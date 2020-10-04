@@ -52,6 +52,8 @@ format = 1
 tile_data = PoolIntArray( -65525, 1, 0, -65524, 2, 0, -65523, 2, 0, -65522, 2, 0, -65521, 2, 0, -65520, 2, 0, -65519, 3, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 131083, 2, 0, 131084, 2, 0, 131085, 2, 0, 131086, 2, 0, 131087, 2, 0, 131088, 2, 0, 131089, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tiles One Way"]
+collision_layer = 2
+collision_mask = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles One Way/StaticBody2D"]
 position = Vector2( 896, 160 )
@@ -205,7 +207,7 @@ position = Vector2( 2752, -256 )
 position = Vector2( 587.654, 138.595 )
 
 [node name="enemy2" parent="enemies" instance=ExtResource( 10 )]
-position = Vector2( 817.558, 241.363 )
+position = Vector2( 996.607, 82.4431 )
 direction = 1
 [connection signal="body_entered" from="fallzone" to="steve" method="_on_fallzone_body_entered"]
 [connection signal="coin_collected" from="coins/coin1" to="HUD" method="_on_coin_collected"]
