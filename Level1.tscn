@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://world_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Steve.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/HUD/coin_gold.png" type="Texture" id=7]
 [ext_resource path="res://assets/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://HUD.gd" type="Script" id=9]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 192, 32 )
@@ -197,6 +198,15 @@ position = Vector2( 2112, 0 )
 
 [node name="coin5" parent="coins" instance=ExtResource( 6 )]
 position = Vector2( 2752, -256 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy1" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 587.654, 138.595 )
+
+[node name="enemy2" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 817.558, 241.363 )
+direction = 1
 [connection signal="body_entered" from="fallzone" to="steve" method="_on_fallzone_body_entered"]
 [connection signal="coin_collected" from="coins/coin1" to="HUD" method="_on_coin_collected"]
 [connection signal="coin_collected" from="coins/coin2" to="HUD" method="_on_coin_collected"]
