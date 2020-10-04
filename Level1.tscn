@@ -132,27 +132,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fallzone"]
 shape = SubResource( 3 )
 
-[node name="coin1" parent="." instance=ExtResource( 6 )]
-position = Vector2( 960, 64 )
-
-[node name="coin2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1344, 256 )
-
-[node name="coin3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2496, -128 )
-
-[node name="coin4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2848, 192 )
-
-[node name="coin5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2176, -384 )
-
-[node name="coin6" parent="." instance=ExtResource( 6 )]
-position = Vector2( 160, 256 )
-
-[node name="coin7" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3392, -192 )
-
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 9 )
 
@@ -201,4 +180,26 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin1" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 192, 256 )
+
+[node name="coin2" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 832, 64 )
+
+[node name="coin3" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 1024, -128 )
+
+[node name="coin4" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2112, 0 )
+
+[node name="coin5" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2752, -256 )
 [connection signal="body_entered" from="fallzone" to="steve" method="_on_fallzone_body_entered"]
+[connection signal="coin_collected" from="coins/coin1" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin2" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin3" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin4" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin5" to="HUD" method="_on_coin_collected"]
