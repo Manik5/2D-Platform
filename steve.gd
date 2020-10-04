@@ -38,6 +38,10 @@ func _on_fallzone_body_entered(body):
 
 func bounce():
 	velocity.y = JUMPFORCE * 0.7
+	
+func damage():
+	set_modulate(Color(1, 0.3, 0.3, 0.3))
+	velocity.y = JUMPFORCE * 0.5
 
 
 	

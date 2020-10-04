@@ -40,7 +40,7 @@ func _on_top_checker_body_entered(body):
 
 func _on_sides_checker_body_entered(body):
 	print("ouch!")
-	get_tree().change_scene("res://Level1.tscn")
+	body.damage()
 
 
 func _on_Timer_timeout():

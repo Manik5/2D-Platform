@@ -3,8 +3,6 @@
 [ext_resource path="res://steve_spriteframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://steve.gd" type="Script" id=2]
 
-
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.1681
 height = 12.8567
