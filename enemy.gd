@@ -10,6 +10,8 @@ func _ready():
 		$AnimatedSprite.flip_h = true
 	$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 	$floor_checker.enabled = detects_cliffs
+	if detects_cliffs:
+		set_modulate(Color(1.2, 0.5, 1))
 
 func _physics_process(delta):
 	
@@ -40,7 +42,7 @@ func _on_top_checker_body_entered(body):
 
 func _on_sides_checker_body_entered(body):
 	print("ouch!")
-	body.damage()
+	body.damage(position.x)
 
 
 func _on_Timer_timeout():
