@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemies/slimeBlue_squashed.png" type="Texture" id=2]
@@ -24,6 +24,9 @@ extents = Vector2( 20.0665, 13.3857 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 15.7963, 3.32678 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 26.5524, 10.8394 )
+
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 16
 collision_mask = 35
@@ -33,7 +36,6 @@ script = ExtResource( 1 )
 position = Vector2( 3.05176e-05, 0 )
 frames = SubResource( 1 )
 animation = "crawl"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -54,4 +56,18 @@ collision_mask = 33
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
 position = Vector2( 0.140312, -13.7502 )
 shape = SubResource( 3 )
+
+[node name="sides_checker" type="Area2D" parent="."]
+collision_layer = 2147483648
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sides_checker"]
+position = Vector2( 0, 3.50769 )
+shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 [connection signal="body_entered" from="top_checker" to="." method="_on_top_checker_body_entered"]
+[connection signal="body_entered" from="sides_checker" to="." method="_on_sides_checker_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

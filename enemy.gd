@@ -32,3 +32,16 @@ func _on_top_checker_body_entered(body):
 	set_collision_mask_bit(0, false)
 	$top_checker.set_collision_layer_bit(4, false)
 	$top_checker.set_collision_mask_bit(0, false)
+	$sides_checker.set_collision_layer_bit(4, false)
+	$sides_checker.set_collision_mask_bit(0, false)
+	$Timer.start()
+	body.bounce()
+
+
+func _on_sides_checker_body_entered(body):
+	print("ouch!")
+	get_tree().change_scene("res://Level1.tscn")
+
+
+func _on_Timer_timeout():
+	queue_free()

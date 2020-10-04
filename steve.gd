@@ -36,5 +36,8 @@ func _physics_process(_delta):
 func _on_fallzone_body_entered(body):
 	get_tree().change_scene("res://Level1.tscn")
 
-func add_coin():
-	coins = coins + 1
+func bounce():
+	velocity.y = JUMPFORCE * 0.7
+
+
+	
