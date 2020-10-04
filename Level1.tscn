@@ -65,23 +65,6 @@ position = Vector2( 928, -32 )
 shape = SubResource( 2 )
 one_way_collision = true
 
-[node name="steve" parent="." instance=ExtResource( 2 )]
-position = Vector2( 384, 32 )
-collision_mask = 31
-
-[node name="Camera2D" type="Camera2D" parent="steve"]
-current = true
-limit_left = 80
-limit_top = -500
-limit_bottom = 500
-limit_smoothed = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-drag_margin_left = 0.3
-drag_margin_right = 0.3
-editor_draw_limits = true
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Purple Sky" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -210,6 +193,27 @@ detects_cliffs = false
 [node name="enemy2" parent="enemies" instance=ExtResource( 10 )]
 position = Vector2( 996.607, 82.4431 )
 direction = 1
+
+[node name="enemy3" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 1482.15, 293.586 )
+direction = 1
+
+[node name="steve" parent="." instance=ExtResource( 2 )]
+position = Vector2( 384, 32 )
+collision_mask = 31
+
+[node name="Camera2D" type="Camera2D" parent="steve"]
+current = true
+limit_left = 80
+limit_top = -500
+limit_bottom = 500
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.3
+drag_margin_right = 0.3
+editor_draw_limits = true
 [connection signal="body_entered" from="fallzone" to="steve" method="_on_fallzone_body_entered"]
 [connection signal="coin_collected" from="coins/coin1" to="HUD" method="_on_coin_collected"]
 [connection signal="coin_collected" from="coins/coin2" to="HUD" method="_on_coin_collected"]
