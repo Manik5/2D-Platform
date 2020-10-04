@@ -39,3 +39,4 @@ shape = SubResource( 2 )
 position = Vector2( 0, -0.14 )
 enabled = true
 cast_to = Vector2( 0, 20 )
+collision_mask = 2

@@ -205,6 +205,7 @@ position = Vector2( 2752, -256 )
 
 [node name="enemy1" parent="enemies" instance=ExtResource( 10 )]
 position = Vector2( 587.654, 138.595 )
+detects_cliffs = false
 
 [node name="enemy2" parent="enemies" instance=ExtResource( 10 )]
 position = Vector2( 996.607, 82.4431 )
